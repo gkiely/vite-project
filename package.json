@@ -1,0 +1,55 @@
+{
+  "name": "youneedawiki",
+  "private": true,
+  "version": "0.0.0",
+  "author": "Grant Kiely <grant@youneedawiki.com>",
+  "type": "module",
+  "license": "MIT",
+  "volta": {
+    "node": "19.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkiely/youneedawiki.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gkiely/youneedawiki/issues"
+  },
+  "files": [],
+  "scripts": {
+    "analyze": "analyze=true bun run build && open stats.html",
+    "start": "./scripts/start.sh",
+    "dev": "vite -- --server ./server/server.ts",
+    "build": "tsc && vite build",
+    "get-latest": "vite-node ./scripts/get-latest.ts",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "test": "vitest",
+    "install-latest": "npm i --no-fund $(bun run --silent get-latest) && npx playwright install chromium && install-changed --hash-only &>/dev/null"
+  },
+  "dependencies": {
+    "@mui/material": "^5.12.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.33.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.2",
+    "@types/react-dom": "^18.2.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "@vitejs/plugin-react-swc": "^3.3.0",
+    "@vitest/browser": "^0.31.0",
+    "eslint": "^8.39.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "happy-dom": "^9.10.8",
+    "install-changed": "^1.1.0",
+    "typescript": "^5.1.0-beta",
+    "vite": "^4.3.4",
+    "vitest": "^0.31.0",
+    "webdriverio": "^8.10.0"
+  }
+}
